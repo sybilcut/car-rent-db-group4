@@ -91,16 +91,47 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.textBox25 = new System.Windows.Forms.TextBox();
+            this.textBox26 = new System.Windows.Forms.TextBox();
+            this.textBox27 = new System.Windows.Forms.TextBox();
+            this.textBox28 = new System.Windows.Forms.TextBox();
+            this.textBox29 = new System.Windows.Forms.TextBox();
+            this.textBox30 = new System.Windows.Forms.TextBox();
+            this.textBox31 = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.City = new System.Windows.Forms.TabPage();
+            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.textBox32 = new System.Windows.Forms.TextBox();
+            this.textBox33 = new System.Windows.Forms.TextBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.label32 = new System.Windows.Forms.Label();
+            this.switchViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.employeeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.Customer.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.City.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,7 +140,8 @@
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addToolStripMenuItem,
-            this.editRemoveToolStripMenuItem});
+            this.editRemoveToolStripMenuItem,
+            this.switchViewToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(834, 33);
@@ -146,12 +178,15 @@
             this.button1.TabIndex = 8;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Customer
             // 
             this.Customer.Controls.Add(this.tabPage1);
             this.Customer.Controls.Add(this.tabPage2);
             this.Customer.Controls.Add(this.tabPage3);
+            this.Customer.Controls.Add(this.tabPage4);
+            this.Customer.Controls.Add(this.City);
             this.Customer.Location = new System.Drawing.Point(13, 126);
             this.Customer.Name = "Customer";
             this.Customer.SelectedIndex = 0;
@@ -315,7 +350,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(283, 189);
+            this.label28.Location = new System.Drawing.Point(279, 187);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(19, 25);
             this.label28.TabIndex = 25;
@@ -331,7 +366,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(283, 146);
+            this.label27.Location = new System.Drawing.Point(279, 144);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(19, 25);
             this.label27.TabIndex = 23;
@@ -347,7 +382,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(283, 318);
+            this.label26.Location = new System.Drawing.Point(279, 316);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(19, 25);
             this.label26.TabIndex = 21;
@@ -678,6 +713,225 @@
             this.label20.TabIndex = 0;
             this.label20.Text = "Rental ID";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.textBox25);
+            this.tabPage4.Controls.Add(this.textBox26);
+            this.tabPage4.Controls.Add(this.textBox27);
+            this.tabPage4.Controls.Add(this.textBox28);
+            this.tabPage4.Controls.Add(this.textBox29);
+            this.tabPage4.Controls.Add(this.textBox30);
+            this.tabPage4.Controls.Add(this.textBox31);
+            this.tabPage4.Controls.Add(this.label34);
+            this.tabPage4.Controls.Add(this.label42);
+            this.tabPage4.Controls.Add(this.label43);
+            this.tabPage4.Controls.Add(this.label44);
+            this.tabPage4.Controls.Add(this.label45);
+            this.tabPage4.Controls.Add(this.label46);
+            this.tabPage4.Controls.Add(this.label47);
+            this.tabPage4.Location = new System.Drawing.Point(4, 34);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(802, 450);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Branch";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // textBox25
+            // 
+            this.textBox25.Location = new System.Drawing.Point(120, 267);
+            this.textBox25.Name = "textBox25";
+            this.textBox25.Size = new System.Drawing.Size(150, 31);
+            this.textBox25.TabIndex = 41;
+            // 
+            // textBox26
+            // 
+            this.textBox26.Location = new System.Drawing.Point(120, 224);
+            this.textBox26.Name = "textBox26";
+            this.textBox26.Size = new System.Drawing.Size(150, 31);
+            this.textBox26.TabIndex = 40;
+            // 
+            // textBox27
+            // 
+            this.textBox27.Location = new System.Drawing.Point(120, 181);
+            this.textBox27.Name = "textBox27";
+            this.textBox27.Size = new System.Drawing.Size(150, 31);
+            this.textBox27.TabIndex = 39;
+            // 
+            // textBox28
+            // 
+            this.textBox28.Location = new System.Drawing.Point(120, 138);
+            this.textBox28.Name = "textBox28";
+            this.textBox28.Size = new System.Drawing.Size(150, 31);
+            this.textBox28.TabIndex = 38;
+            // 
+            // textBox29
+            // 
+            this.textBox29.Location = new System.Drawing.Point(120, 95);
+            this.textBox29.Name = "textBox29";
+            this.textBox29.Size = new System.Drawing.Size(150, 31);
+            this.textBox29.TabIndex = 37;
+            // 
+            // textBox30
+            // 
+            this.textBox30.Location = new System.Drawing.Point(120, 52);
+            this.textBox30.Name = "textBox30";
+            this.textBox30.Size = new System.Drawing.Size(150, 31);
+            this.textBox30.TabIndex = 36;
+            // 
+            // textBox31
+            // 
+            this.textBox31.Location = new System.Drawing.Point(120, 9);
+            this.textBox31.Name = "textBox31";
+            this.textBox31.Size = new System.Drawing.Size(150, 31);
+            this.textBox31.TabIndex = 35;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(6, 273);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(91, 25);
+            this.label34.TabIndex = 34;
+            this.label34.Text = "Phone No";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(6, 230);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(106, 25);
+            this.label42.TabIndex = 33;
+            this.label42.Text = "Postal Code";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(6, 187);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(102, 25);
+            this.label43.TabIndex = 32;
+            this.label43.Text = "Description";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(6, 144);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(42, 25);
+            this.label44.TabIndex = 31;
+            this.label44.Text = "City";
+            this.label44.Click += new System.EventHandler(this.label44_Click);
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(6, 101);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(79, 25);
+            this.label45.TabIndex = 30;
+            this.label45.Text = "Province";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(6, 58);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(92, 25);
+            this.label46.TabIndex = 29;
+            this.label46.Text = "Address 2";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(6, 15);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(92, 25);
+            this.label47.TabIndex = 28;
+            this.label47.Text = "Address 1";
+            // 
+            // City
+            // 
+            this.City.Controls.Add(this.textBox23);
+            this.City.Controls.Add(this.textBox24);
+            this.City.Controls.Add(this.textBox32);
+            this.City.Controls.Add(this.textBox33);
+            this.City.Controls.Add(this.label31);
+            this.City.Controls.Add(this.label30);
+            this.City.Controls.Add(this.label29);
+            this.City.Controls.Add(this.label2);
+            this.City.Location = new System.Drawing.Point(4, 34);
+            this.City.Name = "City";
+            this.City.Padding = new System.Windows.Forms.Padding(3);
+            this.City.Size = new System.Drawing.Size(802, 450);
+            this.City.TabIndex = 4;
+            this.City.Text = "Car Type";
+            this.City.UseVisualStyleBackColor = true;
+            // 
+            // textBox23
+            // 
+            this.textBox23.Location = new System.Drawing.Point(139, 146);
+            this.textBox23.Name = "textBox23";
+            this.textBox23.Size = new System.Drawing.Size(150, 31);
+            this.textBox23.TabIndex = 42;
+            // 
+            // textBox24
+            // 
+            this.textBox24.Location = new System.Drawing.Point(139, 103);
+            this.textBox24.Name = "textBox24";
+            this.textBox24.Size = new System.Drawing.Size(150, 31);
+            this.textBox24.TabIndex = 41;
+            // 
+            // textBox32
+            // 
+            this.textBox32.Location = new System.Drawing.Point(139, 60);
+            this.textBox32.Name = "textBox32";
+            this.textBox32.Size = new System.Drawing.Size(150, 31);
+            this.textBox32.TabIndex = 40;
+            // 
+            // textBox33
+            // 
+            this.textBox33.Location = new System.Drawing.Point(139, 17);
+            this.textBox33.Name = "textBox33";
+            this.textBox33.Size = new System.Drawing.Size(150, 31);
+            this.textBox33.TabIndex = 39;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(6, 149);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(118, 25);
+            this.label31.TabIndex = 17;
+            this.label31.Text = "Monthly Rate";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(6, 106);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(108, 25);
+            this.label30.TabIndex = 16;
+            this.label30.Text = "Weekly Rate";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(6, 63);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(91, 25);
+            this.label29.TabIndex = 16;
+            this.label29.Text = "Daily Rate";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(102, 25);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Description";
+            // 
             // label1
             // 
             this.label1.AutoEllipsis = true;
@@ -726,11 +980,54 @@
             this.button6.Text = "Remove";
             this.button6.UseVisualStyleBackColor = true;
             // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(681, 112);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(136, 34);
+            this.button5.TabIndex = 16;
+            this.button5.Text = "Connect to DB";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click_1);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(715, 76);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(19, 25);
+            this.label32.TabIndex = 17;
+            this.label32.Text = "_";
+            this.label32.Click += new System.EventHandler(this.label32_Click);
+            // 
+            // switchViewToolStripMenuItem
+            // 
+            this.switchViewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.employeeToolStripMenuItem,
+            this.customerToolStripMenuItem});
+            this.switchViewToolStripMenuItem.Name = "switchViewToolStripMenuItem";
+            this.switchViewToolStripMenuItem.Size = new System.Drawing.Size(121, 29);
+            this.switchViewToolStripMenuItem.Text = "Switch View";
+            // 
+            // employeeToolStripMenuItem
+            // 
+            this.employeeToolStripMenuItem.Name = "employeeToolStripMenuItem";
+            this.employeeToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.employeeToolStripMenuItem.Text = "Employee";
+            // 
+            // customerToolStripMenuItem
+            // 
+            this.customerToolStripMenuItem.Name = "customerToolStripMenuItem";
+            this.customerToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
+            this.customerToolStripMenuItem.Text = "Customer";
+            // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(834, 1081);
+            this.Controls.Add(this.label32);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -752,6 +1049,10 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.City.ResumeLayout(false);
+            this.City.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -828,5 +1129,34 @@
         private Button button3;
         private Button button4;
         private Button button6;
+        private TabPage tabPage4;
+        private TextBox textBox25;
+        private TextBox textBox26;
+        private TextBox textBox27;
+        private TextBox textBox28;
+        private TextBox textBox29;
+        private TextBox textBox30;
+        private TextBox textBox31;
+        private Label label34;
+        private Label label42;
+        private Label label43;
+        private Label label44;
+        private Label label45;
+        private Label label46;
+        private Label label47;
+        private TabPage City;
+        private Label label31;
+        private Label label30;
+        private Label label29;
+        private Label label2;
+        private TextBox textBox23;
+        private TextBox textBox24;
+        private TextBox textBox32;
+        private TextBox textBox33;
+        private Button button5;
+        private Label label32;
+        private ToolStripMenuItem switchViewToolStripMenuItem;
+        private ToolStripMenuItem employeeToolStripMenuItem;
+        private ToolStripMenuItem customerToolStripMenuItem;
     }
 }

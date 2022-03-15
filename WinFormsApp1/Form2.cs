@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace WinFormsApp1
 {
@@ -31,6 +32,48 @@ namespace WinFormsApp1
 
         private void button5_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void label44_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label32_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button5_Click_1(object sender, EventArgs e)
+        {
+
+            string connectionString = "Data Source=(localddb)\\MSSQLLocalDB;";
+
+            try
+            {
+                throw new Exception();
+                using (SqlConnection connection = new SqlConnection())
+                {
+                    connection.ConnectionString = connectionString;
+
+                    connection.Open();
+                    if (connection.State == ConnectionState.Open)
+                    {
+                        label32.Text = "Connected!";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                label32.Text = "Failed to connect!";
+            }
+        }
+    
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
 
         }
     }
