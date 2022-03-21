@@ -1,0 +1,15 @@
+﻿CREATE TABLE Customers(
+	CustomerID int identity(1,1) UNIQUE NOT NULL,
+	FirstName varchar(50) NOT NULL,
+	MiddleName varchar(50),
+	LastName varchar(50) NOT NULL,
+	StreetAddress1 varchar(50) NOT NULL,
+	StreetAddress2 varchar(50),
+	PostalCode char(6),
+	DateofBirth date NOT NULL,
+	PhoneNumber int NOT NULL,
+	Insurance int,
+	DrivingLicense varchar(20),
+	MembershipStatus bit NOT NULL,
+	Primary Key(CustomerID),
+);
