@@ -15,7 +15,6 @@ namespace WinFormsApp1
     public partial class Add : Form
     {
 
-        
         NpgsqlConnection connection;
         public Add()
         {
@@ -75,52 +74,62 @@ namespace WinFormsApp1
             if (TabWindow.SelectedTab == TabWindow.TabPages["CustomerTab"])
             {
                 query = $@"INSERT INTO Customers(FirstName, 
+                                                    MiddleName,
                                                     LastName, 
                                                     StreetAddress1, 
                                                     StreetAddress2, 
+                                                    City,
+                                                    Province,
                                                     PostalCode, 
                                                     DateofBirth, 
-                                                    PhoneNumber, 
-                                                    MembershipStatus, 
-                                                    DrivingLicense)
+                                                    PhoneNum,
+                                                    Insurance,
+                                                    Membership_Status, 
+                                                    Driving_License)
                                 VALUES
                                 (NULLIF('{FirstNameText.Text}', ''), 
+                                NULLIF('{MiddleNameText.Text}', ''),
                                 NULLIF('{LastNameText.Text}', ''), 
                                 NULLIF('{Address1Text.Text}', ''), 
                                 NULLIF('{Address2Text.Text}', ''), 
+                                NULLIF('{CustProvText.Text}', ''), 
+                                NULLIF('{CustProvText.Text}', ''), 
                                 NULLIF('{PostalCodeText.Text}', ''), 
                                 '{BirthDatePicker.Value}', 
                                 NULLIF('{PhoneNumberText.Text}', ''), 
+                                NULLIF('{InsuranceText.Text}', ''),
                                 {(MemberCheck.Checked ? true : false)}, 
                                 NULLIF('{DriversLicenseText.Text}', ''));";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["VehicleTab"])
             {
-                query = $@"INSERT INTO Vehicles(VIN, 
+                query = $@"INSERT INTO Car(VIN, 
                                                 Make, 
                                                 Model, 
                                                 Year, 
-                                                Seats, 
+                                                noOfSeats, 
                                                 Colour, 
-                                                InsuranceNumber, 
-                                                Kms, 
-                                                BranchID)
+                                                InsuranceNo, 
+                                                odometernumber, 
+                                                Branch_ID,
+                                                CarType)
                                 VALUES
                                 (NULLIF('{VinText.Text}', ''), 
                                 NULLIF('{MakeText.Text}', ''), 
                                 NULLIF('{ModelText.Text}', ''), 
-                                NULLIF('{YearText.Text}', ''), 
-                                NULLIF('{SeatsText.Text}', ''), 
+                                NULLIF('{YearText.Text}', '')::int, 
+                                NULLIF('{SeatsText.Text}', '')::int, 
                                 NULLIF('{ColourText.Text}', ''), 
                                 NULLIF('{PolicyNumberText.Text}', ''), 
-                                NULLIF('{KmsText.Text}', ''),
-                                NULLIF('{VehicleBranchNumberText.Text}', ''));";
+                                NULLIF('{KmsText.Text}', '')::int,
+                                NULLIF('{VehicleBranchNumberText.Text}', '')::int,
+                                NULLIF('{CarTypeText.Text}', ''));";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["RentalTab"])
             {
-                query = $@"INSERT INTO Rentals(PickupDate, 
+                query = $@"INSERT INTO Rental(PickupDate, 
                                                 ReturnDate, 
                                                 PickupTime, 
                                                 ReturnTime, 
@@ -128,28 +137,28 @@ namespace WinFormsApp1
                                                 VIN, 
                                                 PickupBID, 
                                                 ReturnBID, 
-                                                totalCost)
+                                                total_rentValue)
                                 VALUES
-                                (NULLIF('{PickupDatePicker.Text}', ''), 
-                                NULLIF('{DropoffDatePicker.Text}', ''), 
-                                NULLIF('{PickupTimeText.Text}', ''), 
-                                NULLIF('{DropoffTimeText.Text}', ''), 
-                                NULLIF('{CustIDText.Text}', ''), 
+                                ('{PickupDatePicker.Value.ToShortDateString()}'::date, 
+                                '{DropoffDatePicker.Value.ToShortDateString()}'::date, 
+                                NULLIF('{PickupTimeHrText.Text}{PickupTimeMinText.Text}', '')::time,
+                                NULLIF('{DropoffTimeHrText.Text}{DropoffTimeMinText.Text}', '')::time,
+                                NULLIF('{CustIDText.Text}', '')::int, 
                                 NULLIF('{VehicleNumberText.Text}', ''),  
-                                NULLIF('{PickupBranchText.Text}', ''),  
-                                NULLIF('{DropoffBranchText.Text}', ''),
-                                NULLIF('{DriversLicenseText.Text}', ''));";
+                                NULLIF('{PickupBranchText.Text}', '')::int,  
+                                NULLIF('{DropoffBranchText.Text}', '')::int,
+                                NULLIF('{TotalPriceText.Text}', '')::money);";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["BranchTab"])
             {
-                query = $@"INSERT INTO Branches(Description, 
-                                                StreetAddress1, 
-                                                StreetAddress2, 
+                query = $@"INSERT INTO Branch(Description, 
+                                                Street_Address1, 
+                                                Street_Address2, 
                                                 City,
                                                 Province,
                                                 PostalCode, 
-                                                PhoneNumber)
+                                                PhoneNum)
                                 VALUES
                                 (NULLIF('{BranchDescText.Text}', ''), 
                                 NULLIF('{BranchAddr1Text.Text}', ''), 
@@ -162,15 +171,15 @@ namespace WinFormsApp1
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["CarTypeTab"])
             {
-                query = $@"INSERT INTO CarTypes(Description, 
+                query = $@"INSERT INTO CarType(CarTypeID, 
                                                 DailyRate, 
                                                 WeeklyRate, 
                                                 MonthlyRate)
                                 VALUES
                                 (NULLIF('{CarTypeDescText.Text}', ''), 
-                                NULLIF('{DailyRateText.Text}', ''), 
-                                NULLIF('{WeeklyRateText.Text}', ''), 
-                                NULLIF('{MonthlyRateText.Text}', ''));";
+                                NULLIF('{DailyRateText.Text}', '')::money, 
+                                NULLIF('{WeeklyRateText.Text}', '')::money, 
+                                NULLIF('{MonthlyRateText.Text}', '')::money);";
             }
             NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
             try
@@ -206,6 +215,21 @@ namespace WinFormsApp1
                     }
                 }
             }
+        }
+
+        private void label33_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

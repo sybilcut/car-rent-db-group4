@@ -39,6 +39,12 @@
             this.button1 = new System.Windows.Forms.Button();
             this.TabWindow = new System.Windows.Forms.TabControl();
             this.CustomerTab = new System.Windows.Forms.TabPage();
+            this.DrivingLicenseText = new System.Windows.Forms.TextBox();
+            this.InsuranceText = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.MiddleNameText = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
             this.PhoneNumberText = new System.Windows.Forms.TextBox();
             this.PostalCodeText = new System.Windows.Forms.TextBox();
             this.Address2Text = new System.Windows.Forms.TextBox();
@@ -57,7 +63,7 @@
             this.label27 = new System.Windows.Forms.Label();
             this.YearMaxText = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.VehicleClassText = new System.Windows.Forms.TextBox();
+            this.CarTypeText = new System.Windows.Forms.TextBox();
             this.BranchNumberText = new System.Windows.Forms.TextBox();
             this.KmsMaxText = new System.Windows.Forms.TextBox();
             this.KmsMinText = new System.Windows.Forms.TextBox();
@@ -79,6 +85,14 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.RentalTab = new System.Windows.Forms.TabPage();
+            this.ReturnBranchText = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.PickupBranchText = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.RentalVINText = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.CustomerIDText = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.PriceMaxText = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -89,8 +103,6 @@
             this.PickupMinDatePicker = new System.Windows.Forms.DateTimePicker();
             this.PriceMinText = new System.Windows.Forms.TextBox();
             this.RentalIDText = new System.Windows.Forms.TextBox();
-            this.RestrictVehicleCheck = new System.Windows.Forms.CheckBox();
-            this.RestrictCustomerCheck = new System.Windows.Forms.CheckBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -229,6 +241,12 @@
             // 
             // CustomerTab
             // 
+            this.CustomerTab.Controls.Add(this.DrivingLicenseText);
+            this.CustomerTab.Controls.Add(this.InsuranceText);
+            this.CustomerTab.Controls.Add(this.label35);
+            this.CustomerTab.Controls.Add(this.label36);
+            this.CustomerTab.Controls.Add(this.MiddleNameText);
+            this.CustomerTab.Controls.Add(this.label33);
             this.CustomerTab.Controls.Add(this.PhoneNumberText);
             this.CustomerTab.Controls.Add(this.PostalCodeText);
             this.CustomerTab.Controls.Add(this.Address2Text);
@@ -248,6 +266,54 @@
             this.CustomerTab.TabIndex = 0;
             this.CustomerTab.Text = "Customer";
             this.CustomerTab.UseVisualStyleBackColor = true;
+            // 
+            // DrivingLicenseText
+            // 
+            this.DrivingLicenseText.Location = new System.Drawing.Point(144, 313);
+            this.DrivingLicenseText.Name = "DrivingLicenseText";
+            this.DrivingLicenseText.Size = new System.Drawing.Size(150, 31);
+            this.DrivingLicenseText.TabIndex = 22;
+            // 
+            // InsuranceText
+            // 
+            this.InsuranceText.Location = new System.Drawing.Point(144, 270);
+            this.InsuranceText.Name = "InsuranceText";
+            this.InsuranceText.Size = new System.Drawing.Size(150, 31);
+            this.InsuranceText.TabIndex = 21;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(9, 319);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(97, 25);
+            this.label35.TabIndex = 20;
+            this.label35.Text = "License No";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(9, 276);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(86, 25);
+            this.label36.TabIndex = 19;
+            this.label36.Text = "Policy No";
+            // 
+            // MiddleNameText
+            // 
+            this.MiddleNameText.Location = new System.Drawing.Point(465, 12);
+            this.MiddleNameText.Name = "MiddleNameText";
+            this.MiddleNameText.Size = new System.Drawing.Size(150, 31);
+            this.MiddleNameText.TabIndex = 18;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(330, 18);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(119, 25);
+            this.label33.TabIndex = 17;
+            this.label33.Text = "Middle Name";
             // 
             // PhoneNumberText
             // 
@@ -353,7 +419,7 @@
             this.VehicleTab.Controls.Add(this.label27);
             this.VehicleTab.Controls.Add(this.YearMaxText);
             this.VehicleTab.Controls.Add(this.label26);
-            this.VehicleTab.Controls.Add(this.VehicleClassText);
+            this.VehicleTab.Controls.Add(this.CarTypeText);
             this.VehicleTab.Controls.Add(this.BranchNumberText);
             this.VehicleTab.Controls.Add(this.KmsMaxText);
             this.VehicleTab.Controls.Add(this.KmsMinText);
@@ -423,12 +489,12 @@
             this.label26.TabIndex = 21;
             this.label26.Text = "-";
             // 
-            // VehicleClassText
+            // CarTypeText
             // 
-            this.VehicleClassText.Location = new System.Drawing.Point(123, 399);
-            this.VehicleClassText.Name = "VehicleClassText";
-            this.VehicleClassText.Size = new System.Drawing.Size(150, 31);
-            this.VehicleClassText.TabIndex = 20;
+            this.CarTypeText.Location = new System.Drawing.Point(123, 402);
+            this.CarTypeText.Name = "CarTypeText";
+            this.CarTypeText.Size = new System.Drawing.Size(150, 31);
+            this.CarTypeText.TabIndex = 20;
             // 
             // BranchNumberText
             // 
@@ -505,9 +571,9 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(9, 405);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(111, 25);
+            this.label18.Size = new System.Drawing.Size(80, 25);
             this.label18.TabIndex = 9;
-            this.label18.Text = "Vehicle Class";
+            this.label18.Text = "Car Type";
             // 
             // label17
             // 
@@ -592,6 +658,14 @@
             // 
             // RentalTab
             // 
+            this.RentalTab.Controls.Add(this.ReturnBranchText);
+            this.RentalTab.Controls.Add(this.label40);
+            this.RentalTab.Controls.Add(this.PickupBranchText);
+            this.RentalTab.Controls.Add(this.label39);
+            this.RentalTab.Controls.Add(this.RentalVINText);
+            this.RentalTab.Controls.Add(this.label38);
+            this.RentalTab.Controls.Add(this.CustomerIDText);
+            this.RentalTab.Controls.Add(this.label37);
             this.RentalTab.Controls.Add(this.label25);
             this.RentalTab.Controls.Add(this.PriceMaxText);
             this.RentalTab.Controls.Add(this.label24);
@@ -602,8 +676,6 @@
             this.RentalTab.Controls.Add(this.PickupMinDatePicker);
             this.RentalTab.Controls.Add(this.PriceMinText);
             this.RentalTab.Controls.Add(this.RentalIDText);
-            this.RentalTab.Controls.Add(this.RestrictVehicleCheck);
-            this.RentalTab.Controls.Add(this.RestrictCustomerCheck);
             this.RentalTab.Controls.Add(this.label23);
             this.RentalTab.Controls.Add(this.label22);
             this.RentalTab.Controls.Add(this.label21);
@@ -616,10 +688,74 @@
             this.RentalTab.Text = "Rental";
             this.RentalTab.UseVisualStyleBackColor = true;
             // 
+            // ReturnBranchText
+            // 
+            this.ReturnBranchText.Location = new System.Drawing.Point(147, 281);
+            this.ReturnBranchText.Name = "ReturnBranchText";
+            this.ReturnBranchText.Size = new System.Drawing.Size(150, 31);
+            this.ReturnBranchText.TabIndex = 27;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(9, 284);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(121, 25);
+            this.label40.TabIndex = 26;
+            this.label40.Text = "Return Branch";
+            // 
+            // PickupBranchText
+            // 
+            this.PickupBranchText.Location = new System.Drawing.Point(147, 190);
+            this.PickupBranchText.Name = "PickupBranchText";
+            this.PickupBranchText.Size = new System.Drawing.Size(150, 31);
+            this.PickupBranchText.TabIndex = 25;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(9, 193);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(122, 25);
+            this.label39.TabIndex = 24;
+            this.label39.Text = "Pickup Branch";
+            // 
+            // RentalVINText
+            // 
+            this.RentalVINText.Location = new System.Drawing.Point(103, 106);
+            this.RentalVINText.Name = "RentalVINText";
+            this.RentalVINText.Size = new System.Drawing.Size(150, 31);
+            this.RentalVINText.TabIndex = 23;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(9, 109);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(41, 25);
+            this.label38.TabIndex = 22;
+            this.label38.Text = "VIN";
+            // 
+            // CustomerIDText
+            // 
+            this.CustomerIDText.Location = new System.Drawing.Point(103, 61);
+            this.CustomerIDText.Name = "CustomerIDText";
+            this.CustomerIDText.Size = new System.Drawing.Size(150, 31);
+            this.CustomerIDText.TabIndex = 21;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(9, 64);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(82, 25);
+            this.label37.TabIndex = 20;
+            this.label37.Text = "Cstmr ID";
+            // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(261, 149);
+            this.label25.Location = new System.Drawing.Point(261, 331);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(19, 25);
             this.label25.TabIndex = 19;
@@ -627,7 +763,7 @@
             // 
             // PriceMaxText
             // 
-            this.PriceMaxText.Location = new System.Drawing.Point(280, 145);
+            this.PriceMaxText.Location = new System.Drawing.Point(280, 327);
             this.PriceMaxText.Name = "PriceMaxText";
             this.PriceMaxText.Size = new System.Drawing.Size(150, 31);
             this.PriceMaxText.TabIndex = 18;
@@ -635,7 +771,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(412, 102);
+            this.label24.Location = new System.Drawing.Point(412, 233);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(19, 25);
             this.label24.TabIndex = 17;
@@ -644,7 +780,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(412, 59);
+            this.label19.Location = new System.Drawing.Point(412, 151);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(19, 25);
             this.label19.TabIndex = 16;
@@ -652,35 +788,37 @@
             // 
             // DropoffMinDatePicker
             // 
-            this.DropoffMinDatePicker.Location = new System.Drawing.Point(103, 99);
+            this.DropoffMinDatePicker.Location = new System.Drawing.Point(103, 230);
             this.DropoffMinDatePicker.Name = "DropoffMinDatePicker";
             this.DropoffMinDatePicker.Size = new System.Drawing.Size(300, 31);
             this.DropoffMinDatePicker.TabIndex = 15;
+            this.DropoffMinDatePicker.Value = new System.DateTime(1999, 2, 1, 0, 0, 0, 0);
             // 
             // DropoffMaxDatePicker
             // 
-            this.DropoffMaxDatePicker.Location = new System.Drawing.Point(433, 99);
+            this.DropoffMaxDatePicker.Location = new System.Drawing.Point(433, 230);
             this.DropoffMaxDatePicker.Name = "DropoffMaxDatePicker";
             this.DropoffMaxDatePicker.Size = new System.Drawing.Size(300, 31);
             this.DropoffMaxDatePicker.TabIndex = 14;
             // 
             // PickupMaxDatePicker
             // 
-            this.PickupMaxDatePicker.Location = new System.Drawing.Point(433, 57);
+            this.PickupMaxDatePicker.Location = new System.Drawing.Point(433, 149);
             this.PickupMaxDatePicker.Name = "PickupMaxDatePicker";
             this.PickupMaxDatePicker.Size = new System.Drawing.Size(300, 31);
             this.PickupMaxDatePicker.TabIndex = 13;
             // 
             // PickupMinDatePicker
             // 
-            this.PickupMinDatePicker.Location = new System.Drawing.Point(103, 56);
+            this.PickupMinDatePicker.Location = new System.Drawing.Point(103, 148);
             this.PickupMinDatePicker.Name = "PickupMinDatePicker";
             this.PickupMinDatePicker.Size = new System.Drawing.Size(300, 31);
             this.PickupMinDatePicker.TabIndex = 12;
+            this.PickupMinDatePicker.Value = new System.DateTime(1999, 2, 1, 0, 0, 0, 0);
             // 
             // PriceMinText
             // 
-            this.PriceMinText.Location = new System.Drawing.Point(103, 145);
+            this.PriceMinText.Location = new System.Drawing.Point(103, 327);
             this.PriceMinText.Name = "PriceMinText";
             this.PriceMinText.Size = new System.Drawing.Size(150, 31);
             this.PriceMinText.TabIndex = 11;
@@ -692,30 +830,10 @@
             this.RentalIDText.Size = new System.Drawing.Size(150, 31);
             this.RentalIDText.TabIndex = 8;
             // 
-            // RestrictVehicleCheck
-            // 
-            this.RestrictVehicleCheck.AutoSize = true;
-            this.RestrictVehicleCheck.Location = new System.Drawing.Point(19, 237);
-            this.RestrictVehicleCheck.Name = "RestrictVehicleCheck";
-            this.RestrictVehicleCheck.Size = new System.Drawing.Size(246, 29);
-            this.RestrictVehicleCheck.TabIndex = 7;
-            this.RestrictVehicleCheck.Text = "Include Vehicle Parameters";
-            this.RestrictVehicleCheck.UseVisualStyleBackColor = true;
-            // 
-            // RestrictCustomerCheck
-            // 
-            this.RestrictCustomerCheck.AutoSize = true;
-            this.RestrictCustomerCheck.Location = new System.Drawing.Point(19, 194);
-            this.RestrictCustomerCheck.Name = "RestrictCustomerCheck";
-            this.RestrictCustomerCheck.Size = new System.Drawing.Size(269, 29);
-            this.RestrictCustomerCheck.TabIndex = 6;
-            this.RestrictCustomerCheck.Text = "Include Customer Parameters";
-            this.RestrictCustomerCheck.UseVisualStyleBackColor = true;
-            // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(9, 151);
+            this.label23.Location = new System.Drawing.Point(9, 333);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(91, 25);
             this.label23.TabIndex = 3;
@@ -724,16 +842,16 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(9, 108);
+            this.label22.Location = new System.Drawing.Point(9, 239);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(76, 25);
+            this.label22.Size = new System.Drawing.Size(63, 25);
             this.label22.TabIndex = 2;
-            this.label22.Text = "Dropoff";
+            this.label22.Text = "Return";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(9, 65);
+            this.label21.Location = new System.Drawing.Point(9, 151);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(64, 25);
             this.label21.TabIndex = 1;
@@ -1102,7 +1220,7 @@
         private Label label27;
         private TextBox YearMaxText;
         private Label label26;
-        private TextBox VehicleClassText;
+        private TextBox CarTypeText;
         private TextBox BranchNumberText;
         private TextBox KmsMaxText;
         private TextBox KmsMinText;
@@ -1175,8 +1293,23 @@
         private ToolStripMenuItem employeeToolStripMenuItem;
         private ToolStripMenuItem customerToolStripMenuItem;
         private ToolStripMenuItem reportingToolStripMenuItem;
-        private CheckBox RestrictVehicleCheck;
-        private CheckBox RestrictCustomerCheck;
         private Button SaveButton;
+        private TextBox MiddleNameText;
+        private Label label33;
+        private TextBox textBox1;
+        private TextBox textBox2;
+        private Label label35;
+        private Label label36;
+        private TextBox DrivingLicenseText;
+        private TextBox InsuranceText;
+        private TextBox textBox3;
+        private Label label37;
+        private Label label38;
+        private TextBox RentalVINText;
+        private TextBox CustomerIDText;
+        private TextBox ReturnBranchText;
+        private Label label40;
+        private TextBox PickupBranchText;
+        private Label label39;
     }
 }

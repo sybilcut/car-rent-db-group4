@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace WinFormsApp1
 {
     public partial class Login : Form
@@ -24,7 +26,6 @@ namespace WinFormsApp1
             Add form = new Add();
             form.Show();
             this.Hide();
-
         }
     }
 }

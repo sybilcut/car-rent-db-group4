@@ -103,56 +103,63 @@ namespace WinFormsApp1
             {
                 query = $@"SELECT * FROM Customers c WHERE
                             LOWER(FirstName) LIKE LOWER('%{FirstNameText.Text}%') AND
+                            (LOWER(MiddleName) LIKE LOWER('%{MiddleNameText.Text}%') OR StreetAddress1 IS NULL) AND
                             LOWER(LastName) LIKE LOWER('%{LastNameText.Text}%') AND
-                            LOWER(StreetAddress1) LIKE LOWER('%{Address1Text.Text}%') AND
+                            (LOWER(StreetAddress1) LIKE LOWER('%{Address1Text.Text}%') OR StreetAddress1 IS NULL) AND
                             (LOWER(StreetAddress2) LIKE LOWER('%{Address2Text.Text}%') OR StreetAddress2 IS NULL) AND
                             (LOWER(PostalCode) LIKE LOWER('%{PostalCodeText.Text}%') OR PostalCode IS NULL) AND
-                            LOWER(PhoneNumber) LIKE LOWER(('%{PhoneNumberText.Text}%'));";
+                            (LOWER(PhoneNum) LIKE LOWER('%{PhoneNumberText.Text}%') OR PhoneNum IS NULL) AND
+                            (LOWER(Insurance) LIKE LOWER('%{InsuranceText.Text}%') OR Insurance IS NULL) AND
+                            (LOWER(Driving_license) LIKE LOWER('%{DrivingLicenseText.Text}%') OR Driving_license IS NULL);";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["VehicleTab"])
             {
-                query = $@"SELECT * FROM Vehicles c WHERE
+                query = $@"SELECT * FROM Car c WHERE
                             LOWER(VIN) LIKE LOWER('%{VinText.Text}%') AND
                             LOWER(Make) LIKE LOWER('%{MakeText.Text}%') AND
                             LOWER(Model) LIKE LOWER('%{ModelText.Text}%') AND
-                            LOWER(Year) LIKE LOWER('%{YearMinText.Text}%') AND 
-                            LOWER(Seats) LIKE LOWER('%{SeatsMinText.Text}%') AND
+                            (Year BETWEEN '{((YearMinText.Text.Length>0)?YearMinText.Text:0)}'::int4 AND '{((YearMaxText.Text.Length>0)?YearMaxText.Text:9999999)}'::int4) AND
+                            (noOfSeats BETWEEN '{((SeatsMinText.Text.Length>0)?SeatsMinText.Text:0)}'::int4 AND '{((SeatsMaxText.Text.Length > 0) ? SeatsMaxText.Text : 9999999)}'::int4) AND
                             LOWER(Colour) LIKE LOWER('%{ColourText.Text}%') AND
-                            LOWER(PolicyNumber) LIKE LOWER('%{PolicyNumberText.Text}%') AND
-                            LOWER(Kms) LIKE LOWER('%{KmsMinText.Text}%') AND
-                            LOWER(BranchNumber) LIKE LOWER('%{BranchNumberText.Text}%') AND
-                            LOWER(VehicleClass) LIKE LOWER('%{VehicleClassText.Text}%');";
+                            (InsuranceNo::text LIKE ('%{PolicyNumberText.Text}%') OR InsuranceNo IS NULL) AND
+                            (odometernumber BETWEEN '{((KmsMinText.Text.Length > 0)?KmsMinText.Text:0)}'::int4 AND '{((KmsMaxText.Text.Length > 0) ? KmsMaxText.Text : 99999999)}'::int4 OR odometernumber IS NULL) AND
+                            Branch_ID::text LIKE ('%{BranchNumberText.Text}%') AND
+                            LOWER(CarType) LIKE LOWER('%{CarTypeText.Text}%');";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["RentalTab"])
             {
-                query = $@"SELECT * FROM Rentals c WHERE
-                            LOWER(RentalID) LIKE LOWER('%{RentalIDText.Text}%') AND
-                            LOWER(PickupDate) LIKE LOWER('%{PickupMinDatePicker.Text}%') AND
-                            LOWER(DropoffDate) LIKE LOWER('%{DropoffMinDatePicker.Text}%') AND
-                            LOWER(TotalPrice) LIKE LOWER('%{PriceMinText.Text}%');";
+                query = $@"SELECT * FROM Rental c WHERE
+                            TID::text LIKE LOWER('%{RentalIDText.Text}%') AND
+                            (PickupDate BETWEEN '{PickupMinDatePicker.Value.ToShortDateString()}'::date AND '{PickupMaxDatePicker.Value.ToShortDateString()}'::date) AND
+                            (ReturnDate BETWEEN '{DropoffMinDatePicker.Value.ToShortDateString()}'::date AND '{DropoffMaxDatePicker.Value.ToShortDateString()}'::date) AND
+                            CustomerID::text LIKE LOWER('{CustomerIDText.Text}%') AND
+                            LOWER(VIN) LIKE LOWER('{RentalVINText.Text}%') AND
+                            PickupBID::text LIKE ('{PickupBranchText.Text}%') AND
+                            (ReturnBID::text LIKE ('{ReturnBranchText.Text}%') OR ReturnBID IS NULL) AND
+                            (Total_rentValue BETWEEN '{((PriceMinText.Text.Length > 0)?PriceMinText.Text:0)}'::money AND '{((PriceMaxText.Text.Length > 0) ? PriceMaxText.Text : 9999999999)}'::money);";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["BranchTab"])
             {
-                query = $@"SELECT * FROM Branches c WHERE
-                            LOWER(Address1) LIKE LOWER('%{BranchAddr1Text.Text}%') AND
-                            LOWER(Address2) LIKE LOWER('%{BranchAddr2Text.Text}%') AND
+                query = $@"SELECT * FROM Branch c WHERE
+                            (LOWER(Street_address1) LIKE LOWER('%{BranchAddr1Text.Text}%') OR Street_address1 IS NULL) AND
+                            (LOWER(Street_Address2) LIKE LOWER('%{BranchAddr2Text.Text}%') OR Street_address2 IS NULL) AND
                             LOWER(Province) LIKE LOWER('%{ProvinceText.Text}%') AND
                             LOWER(City) LIKE LOWER('%{CityText.Text}%') AND 
-                            LOWER(Description) LIKE LOWER('%{DescriptionText.Text}%') AND
-                            LOWER(PostalCode) LIKE LOWER('%{BranchPostalCodeText.Text}%') AND
-                            LOWER(PhoneNumber) LIKE LOWER('%{BranchPhoneNumText.Text}%');";
+                            (LOWER(Description) LIKE LOWER('%{DescriptionText.Text}%') OR description IS NULL) AND
+                            (LOWER(PostalCode) LIKE LOWER('%{BranchPostalCodeText.Text}%') OR PostalCode IS NULL) AND
+                            (LOWER(PhoneNum) LIKE LOWER('%{BranchPhoneNumText.Text}%') OR PhoneNum IS NULL);";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["CarTypeTab"])
             {
-                query = $@"SELECT * FROM CarTypes c WHERE
-                            LOWER(Description) LIKE LOWER('%{CarDescText.Text}%') AND
-                            LOWER(DailyRate) LIKE LOWER('%{DailyRateText.Text}%') AND
-                            LOWER(WeeklyRate) LIKE LOWER('%{WeeklyRateText.Text}%') AND
-                            LOWER(MonthlyRate) LIKE LOWER('%{MonthlyRateText.Text}%');";
+                query = $@"SELECT * FROM CarType c WHERE
+                            LOWER(CarTypeID) LIKE LOWER('%{CarDescText.Text}%') AND
+                            DailyRate IS NOT NULL AND
+                            WeeklyRate IS NOT NULL AND
+                            MonthlyRate IS NOT NULL;";
             }
 
 
@@ -187,16 +194,16 @@ namespace WinFormsApp1
                         dataGridView1.DataSource = ds.Tables[0];
                         break;
                     case "Vehicle":
-                        dataGridView1.DataSource = ds.Tables[1];
+                        dataGridView1.DataSource = ds.Tables[0];
                         break;
                     case "Rental":
-                        dataGridView1.DataSource = ds.Tables[2];
+                        dataGridView1.DataSource = ds.Tables[0];
                         break;
                     case "Branch":
-                        dataGridView1.DataSource = ds.Tables[3];
+                        dataGridView1.DataSource = ds.Tables[0];
                         break;
                     case "Car Type":
-                        dataGridView1.DataSource = ds.Tables[4];
+                        dataGridView1.DataSource = ds.Tables[0];
                         break;
                     default:
                         dataGridView1.DataSource = ds.Tables[0];
@@ -247,6 +254,16 @@ namespace WinFormsApp1
                 dAdapter.UpdateCommand = new NpgsqlCommandBuilder(dAdapter).GetUpdateCommand();
                 dAdapter.Update(ds);
             }
+        }
+
+        private void label37_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
