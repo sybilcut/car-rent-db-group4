@@ -260,7 +260,6 @@
             this.MiddleNameText.Name = "MiddleNameText";
             this.MiddleNameText.Size = new System.Drawing.Size(150, 31);
             this.MiddleNameText.TabIndex = 23;
-            this.MiddleNameText.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label33
             // 
@@ -271,7 +270,6 @@
             this.label33.Size = new System.Drawing.Size(119, 25);
             this.label33.TabIndex = 22;
             this.label33.Text = "Middle Name";
-            this.label33.Click += new System.EventHandler(this.label33_Click);
             // 
             // MemberCheck
             // 
@@ -378,7 +376,6 @@
             this.label7.Size = new System.Drawing.Size(79, 25);
             this.label7.TabIndex = 4;
             this.label7.Text = "Province";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label6
             // 
@@ -1110,7 +1107,6 @@
             this.button5.TabIndex = 18;
             this.button5.Text = "Connect to DB";
             this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // menuStrip2
             // 

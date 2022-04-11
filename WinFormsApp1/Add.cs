@@ -38,13 +38,6 @@ namespace WinFormsApp1
             
         }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            
-
-            
-        }
-
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
             SearchEdit form = new SearchEdit();
@@ -215,21 +208,6 @@ namespace WinFormsApp1
                     }
                 }
             }
-        }
-
-        private void label33_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
