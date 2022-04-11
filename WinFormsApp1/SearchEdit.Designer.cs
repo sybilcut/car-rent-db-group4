@@ -123,6 +123,12 @@
             this.label46 = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.CarTypeTab = new System.Windows.Forms.TabPage();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.MonthlyRateMaxText = new System.Windows.Forms.TextBox();
+            this.WeeklyRateMaxText = new System.Windows.Forms.TextBox();
+            this.DailyRateMaxText = new System.Windows.Forms.TextBox();
             this.MonthlyRateMinText = new System.Windows.Forms.TextBox();
             this.WeeklyRateMinText = new System.Windows.Forms.TextBox();
             this.DailyRateMinText = new System.Windows.Forms.TextBox();
@@ -135,15 +141,8 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
             this.SaveButton = new System.Windows.Forms.Button();
-            this.MonthlyRateMaxText = new System.Windows.Forms.TextBox();
-            this.WeeklyRateMaxText = new System.Windows.Forms.TextBox();
-            this.DailyRateMaxText = new System.Windows.Forms.TextBox();
-            this.label41 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.TabWindow.SuspendLayout();
             this.CustomerTab.SuspendLayout();
@@ -1031,6 +1030,54 @@
             this.CarTypeTab.Text = "Car Type";
             this.CarTypeTab.UseVisualStyleBackColor = true;
             // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(296, 146);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(19, 25);
+            this.label41.TabIndex = 49;
+            this.label41.Text = "-";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(296, 103);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(19, 25);
+            this.label48.TabIndex = 47;
+            this.label48.Text = "-";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(296, 60);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(19, 25);
+            this.label49.TabIndex = 48;
+            this.label49.Text = "-";
+            // 
+            // MonthlyRateMaxText
+            // 
+            this.MonthlyRateMaxText.Location = new System.Drawing.Point(321, 146);
+            this.MonthlyRateMaxText.Name = "MonthlyRateMaxText";
+            this.MonthlyRateMaxText.Size = new System.Drawing.Size(150, 31);
+            this.MonthlyRateMaxText.TabIndex = 46;
+            // 
+            // WeeklyRateMaxText
+            // 
+            this.WeeklyRateMaxText.Location = new System.Drawing.Point(321, 103);
+            this.WeeklyRateMaxText.Name = "WeeklyRateMaxText";
+            this.WeeklyRateMaxText.Size = new System.Drawing.Size(150, 31);
+            this.WeeklyRateMaxText.TabIndex = 45;
+            // 
+            // DailyRateMaxText
+            // 
+            this.DailyRateMaxText.Location = new System.Drawing.Point(321, 60);
+            this.DailyRateMaxText.Name = "DailyRateMaxText";
+            this.DailyRateMaxText.Size = new System.Drawing.Size(150, 31);
+            this.DailyRateMaxText.TabIndex = 44;
+            // 
             // MonthlyRateMinText
             // 
             this.MonthlyRateMinText.Location = new System.Drawing.Point(139, 146);
@@ -1135,20 +1182,10 @@
             this.button4.Text = "Next";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(681, 112);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(136, 34);
-            this.button5.TabIndex = 16;
-            this.button5.Text = "Connect to DB";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click_1);
-            // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(681, 76);
+            this.label32.Location = new System.Drawing.Point(655, 126);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(19, 25);
             this.label32.TabIndex = 17;
@@ -1164,54 +1201,7 @@
             this.SaveButton.Text = "Save Changes";
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
-            // 
-            // MonthlyRateMaxText
-            // 
-            this.MonthlyRateMaxText.Location = new System.Drawing.Point(321, 146);
-            this.MonthlyRateMaxText.Name = "MonthlyRateMaxText";
-            this.MonthlyRateMaxText.Size = new System.Drawing.Size(150, 31);
-            this.MonthlyRateMaxText.TabIndex = 46;
-            // 
-            // WeeklyRateMaxText
-            // 
-            this.WeeklyRateMaxText.Location = new System.Drawing.Point(321, 103);
-            this.WeeklyRateMaxText.Name = "WeeklyRateMaxText";
-            this.WeeklyRateMaxText.Size = new System.Drawing.Size(150, 31);
-            this.WeeklyRateMaxText.TabIndex = 45;
-            // 
-            // DailyRateMaxText
-            // 
-            this.DailyRateMaxText.Location = new System.Drawing.Point(321, 60);
-            this.DailyRateMaxText.Name = "DailyRateMaxText";
-            this.DailyRateMaxText.Size = new System.Drawing.Size(150, 31);
-            this.DailyRateMaxText.TabIndex = 44;
-            // 
-            // label41
-            // 
-            this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(296, 146);
-            this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(19, 25);
-            this.label41.TabIndex = 49;
-            this.label41.Text = "-";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(296, 103);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(19, 25);
-            this.label48.TabIndex = 47;
-            this.label48.Text = "-";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(296, 60);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(19, 25);
-            this.label49.TabIndex = 48;
-            this.label49.Text = "-";
+            this.SaveButton.LostFocus += new System.EventHandler(this.SaveButton_LostFocus);
             // 
             // SearchEdit
             // 
@@ -1220,7 +1210,6 @@
             this.ClientSize = new System.Drawing.Size(834, 1081);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.label32);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.dataGridView1);

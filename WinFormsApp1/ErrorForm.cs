@@ -23,10 +23,5 @@ namespace WinFormsApp1
         {
             label1.Text = ex.Message;
         }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

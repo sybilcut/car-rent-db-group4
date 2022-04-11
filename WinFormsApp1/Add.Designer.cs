@@ -128,7 +128,6 @@
             this.Submit = new System.Windows.Forms.Button();
             this.ClearButton = new System.Windows.Forms.Button();
             this.label32 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -1078,6 +1077,7 @@
             this.Submit.Text = "Submit";
             this.Submit.UseVisualStyleBackColor = true;
             this.Submit.Click += new System.EventHandler(this.button1_Click);
+            this.Submit.LostFocus += new System.EventHandler(this.Button1_LostFocus);
             // 
             // ClearButton
             // 
@@ -1092,21 +1092,12 @@
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(746, 78);
+            this.label32.Location = new System.Drawing.Point(708, 136);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(19, 25);
             this.label32.TabIndex = 19;
             this.label32.Text = "_";
             this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(746, 114);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(136, 34);
-            this.button5.TabIndex = 18;
-            this.button5.Text = "Connect to DB";
-            this.button5.UseVisualStyleBackColor = true;
             // 
             // menuStrip2
             // 
@@ -1196,7 +1187,6 @@
             this.Controls.Add(this.label27);
             this.Controls.Add(this.menuStrip2);
             this.Controls.Add(this.label32);
-            this.Controls.Add(this.button5);
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.Submit);
             this.Controls.Add(this.TabWindow);

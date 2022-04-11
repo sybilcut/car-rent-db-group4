@@ -25,17 +25,24 @@ namespace WinFormsApp1
         {
             string connectionString = $"Host=35.183.48.135;Port=5432;Database=master;UserID={Program.user};Password={Program.pass};";
 
-            
-            connection = new NpgsqlConnection();
+            try {
+                connection = new NpgsqlConnection();
+                connection.ConnectionString = connectionString;
+                connection.Open();
 
-            connection.ConnectionString = connectionString;
+                if (connection != null)
+                {
+                    label32.Text = "Connection " + connection.State.ToString();
+                }
 
-            connection.Open();
-            if (connection != null)
+            } catch (Exception eep)
             {
-                label32.Text = "Connection" + connection.State.ToString();
+                ErrorForm page = new ErrorForm(eep);
+                page.Show();
+                this.Close();
+                Login l = new Login();
+                l.Show();
             }
-            
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -85,7 +92,7 @@ namespace WinFormsApp1
                                 NULLIF('{LastNameText.Text}', ''), 
                                 NULLIF('{Address1Text.Text}', ''), 
                                 NULLIF('{Address2Text.Text}', ''), 
-                                NULLIF('{CustProvText.Text}', ''), 
+                                NULLIF('{CustCityText.Text}', ''), 
                                 NULLIF('{CustProvText.Text}', ''), 
                                 NULLIF('{PostalCodeText.Text}', ''), 
                                 '{BirthDatePicker.Value}', 
@@ -189,6 +196,11 @@ namespace WinFormsApp1
             Clear_All();
 
 
+        }
+
+        private void Button1_LostFocus(object sender, EventArgs e)
+        {
+            AddedLabel.Visible = false;
         }
 
         private void ClearButton_Click(object sender, EventArgs e)
