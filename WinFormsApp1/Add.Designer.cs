@@ -57,8 +57,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.VehicleTab = new System.Windows.Forms.TabPage();
-            this.CarTypeText = new System.Windows.Forms.TextBox();
-            this.VehicleBranchNumberText = new System.Windows.Forms.TextBox();
+            this.CarTypeBox = new System.Windows.Forms.ComboBox();
+            this.VehicleBranchBox = new System.Windows.Forms.ComboBox();
             this.KmsText = new System.Windows.Forms.TextBox();
             this.PolicyNumberText = new System.Windows.Forms.TextBox();
             this.ColourText = new System.Windows.Forms.TextBox();
@@ -91,22 +91,20 @@
             this.label28 = new System.Windows.Forms.Label();
             this.TotalPriceText = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.DropoffBranchText = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.DropoffDatePicker = new System.Windows.Forms.DateTimePicker();
             this.PickupDatePicker = new System.Windows.Forms.DateTimePicker();
-            this.PickupBranchText = new System.Windows.Forms.TextBox();
             this.VehicleNumberText = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.BranchTab = new System.Windows.Forms.TabPage();
+            this.ProvinceBox = new System.Windows.Forms.ComboBox();
             this.BranchPhoneNumberText = new System.Windows.Forms.TextBox();
             this.BranchPostalCodeText = new System.Windows.Forms.TextBox();
             this.BranchDescText = new System.Windows.Forms.TextBox();
             this.CityText = new System.Windows.Forms.TextBox();
-            this.ProvinceText = new System.Windows.Forms.TextBox();
             this.BranchAddr2Text = new System.Windows.Forms.TextBox();
             this.BranchAddr1Text = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
@@ -137,6 +135,8 @@
             this.customerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label27 = new System.Windows.Forms.Label();
             this.AddedLabel = new System.Windows.Forms.Label();
+            this.PickupBox = new System.Windows.Forms.ComboBox();
+            this.DropoffBox = new System.Windows.Forms.ComboBox();
             this.TabWindow.SuspendLayout();
             this.CustomerTab.SuspendLayout();
             this.VehicleTab.SuspendLayout();
@@ -169,6 +169,7 @@
             this.TabWindow.SelectedIndex = 0;
             this.TabWindow.Size = new System.Drawing.Size(873, 488);
             this.TabWindow.TabIndex = 1;
+            this.TabWindow.Selected += new System.Windows.Forms.TabControlEventHandler(this.tabwindow_Selected);
             // 
             // CustomerTab
             // 
@@ -417,8 +418,8 @@
             // 
             // VehicleTab
             // 
-            this.VehicleTab.Controls.Add(this.CarTypeText);
-            this.VehicleTab.Controls.Add(this.VehicleBranchNumberText);
+            this.VehicleTab.Controls.Add(this.CarTypeBox);
+            this.VehicleTab.Controls.Add(this.VehicleBranchBox);
             this.VehicleTab.Controls.Add(this.KmsText);
             this.VehicleTab.Controls.Add(this.PolicyNumberText);
             this.VehicleTab.Controls.Add(this.ColourText);
@@ -445,19 +446,21 @@
             this.VehicleTab.Text = "Vehicle";
             this.VehicleTab.UseVisualStyleBackColor = true;
             // 
-            // CarTypeText
+            // CarTypeBox
             // 
-            this.CarTypeText.Location = new System.Drawing.Point(123, 399);
-            this.CarTypeText.Name = "CarTypeText";
-            this.CarTypeText.Size = new System.Drawing.Size(150, 31);
-            this.CarTypeText.TabIndex = 20;
+            this.CarTypeBox.FormattingEnabled = true;
+            this.CarTypeBox.Location = new System.Drawing.Point(123, 399);
+            this.CarTypeBox.Name = "CarTypeBox";
+            this.CarTypeBox.Size = new System.Drawing.Size(150, 33);
+            this.CarTypeBox.TabIndex = 28;
             // 
-            // VehicleBranchNumberText
+            // VehicleBranchBox
             // 
-            this.VehicleBranchNumberText.Location = new System.Drawing.Point(123, 356);
-            this.VehicleBranchNumberText.Name = "VehicleBranchNumberText";
-            this.VehicleBranchNumberText.Size = new System.Drawing.Size(150, 31);
-            this.VehicleBranchNumberText.TabIndex = 19;
+            this.VehicleBranchBox.FormattingEnabled = true;
+            this.VehicleBranchBox.Location = new System.Drawing.Point(123, 356);
+            this.VehicleBranchBox.Name = "VehicleBranchBox";
+            this.VehicleBranchBox.Size = new System.Drawing.Size(150, 33);
+            this.VehicleBranchBox.TabIndex = 27;
             // 
             // KmsText
             // 
@@ -615,6 +618,8 @@
             // 
             // RentalTab
             // 
+            this.RentalTab.Controls.Add(this.DropoffBox);
+            this.RentalTab.Controls.Add(this.PickupBox);
             this.RentalTab.Controls.Add(this.label41);
             this.RentalTab.Controls.Add(this.label48);
             this.RentalTab.Controls.Add(this.DropoffTimeMinText);
@@ -628,11 +633,9 @@
             this.RentalTab.Controls.Add(this.label28);
             this.RentalTab.Controls.Add(this.TotalPriceText);
             this.RentalTab.Controls.Add(this.label24);
-            this.RentalTab.Controls.Add(this.DropoffBranchText);
             this.RentalTab.Controls.Add(this.label19);
             this.RentalTab.Controls.Add(this.DropoffDatePicker);
             this.RentalTab.Controls.Add(this.PickupDatePicker);
-            this.RentalTab.Controls.Add(this.PickupBranchText);
             this.RentalTab.Controls.Add(this.VehicleNumberText);
             this.RentalTab.Controls.Add(this.label23);
             this.RentalTab.Controls.Add(this.label22);
@@ -759,13 +762,6 @@
             this.label24.TabIndex = 18;
             this.label24.Text = "Total Price";
             // 
-            // DropoffBranchText
-            // 
-            this.DropoffBranchText.Location = new System.Drawing.Point(167, 193);
-            this.DropoffBranchText.Name = "DropoffBranchText";
-            this.DropoffBranchText.Size = new System.Drawing.Size(150, 31);
-            this.DropoffBranchText.TabIndex = 17;
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -789,13 +785,6 @@
             this.PickupDatePicker.Name = "PickupDatePicker";
             this.PickupDatePicker.Size = new System.Drawing.Size(300, 31);
             this.PickupDatePicker.TabIndex = 12;
-            // 
-            // PickupBranchText
-            // 
-            this.PickupBranchText.Location = new System.Drawing.Point(167, 145);
-            this.PickupBranchText.Name = "PickupBranchText";
-            this.PickupBranchText.Size = new System.Drawing.Size(150, 31);
-            this.PickupBranchText.TabIndex = 11;
             // 
             // VehicleNumberText
             // 
@@ -846,11 +835,11 @@
             // 
             // BranchTab
             // 
+            this.BranchTab.Controls.Add(this.ProvinceBox);
             this.BranchTab.Controls.Add(this.BranchPhoneNumberText);
             this.BranchTab.Controls.Add(this.BranchPostalCodeText);
             this.BranchTab.Controls.Add(this.BranchDescText);
             this.BranchTab.Controls.Add(this.CityText);
-            this.BranchTab.Controls.Add(this.ProvinceText);
             this.BranchTab.Controls.Add(this.BranchAddr2Text);
             this.BranchTab.Controls.Add(this.BranchAddr1Text);
             this.BranchTab.Controls.Add(this.label34);
@@ -867,6 +856,30 @@
             this.BranchTab.TabIndex = 4;
             this.BranchTab.Text = "Branch";
             this.BranchTab.UseVisualStyleBackColor = true;
+            // 
+            // ProvinceBox
+            // 
+            this.ProvinceBox.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllUrl;
+            this.ProvinceBox.FormattingEnabled = true;
+            this.ProvinceBox.Items.AddRange(new object[] {
+            "AB",
+            "BC",
+            "MN",
+            "NB",
+            "NL",
+            "NS",
+            "NT",
+            "NU",
+            "ON",
+            "PE",
+            "QC",
+            "SK",
+            "YK"});
+            this.ProvinceBox.Location = new System.Drawing.Point(120, 96);
+            this.ProvinceBox.Name = "ProvinceBox";
+            this.ProvinceBox.Size = new System.Drawing.Size(150, 33);
+            this.ProvinceBox.Sorted = true;
+            this.ProvinceBox.TabIndex = 42;
             // 
             // BranchPhoneNumberText
             // 
@@ -895,13 +908,6 @@
             this.CityText.Name = "CityText";
             this.CityText.Size = new System.Drawing.Size(150, 31);
             this.CityText.TabIndex = 38;
-            // 
-            // ProvinceText
-            // 
-            this.ProvinceText.Location = new System.Drawing.Point(120, 95);
-            this.ProvinceText.Name = "ProvinceText";
-            this.ProvinceText.Size = new System.Drawing.Size(150, 31);
-            this.ProvinceText.TabIndex = 37;
             // 
             // BranchAddr2Text
             // 
@@ -1178,6 +1184,22 @@
             this.AddedLabel.Text = "Added!";
             this.AddedLabel.Visible = false;
             // 
+            // PickupBox
+            // 
+            this.PickupBox.FormattingEnabled = true;
+            this.PickupBox.Location = new System.Drawing.Point(167, 145);
+            this.PickupBox.Name = "PickupBox";
+            this.PickupBox.Size = new System.Drawing.Size(150, 33);
+            this.PickupBox.TabIndex = 31;
+            // 
+            // DropoffBox
+            // 
+            this.DropoffBox.FormattingEnabled = true;
+            this.DropoffBox.Location = new System.Drawing.Point(167, 193);
+            this.DropoffBox.Name = "DropoffBox";
+            this.DropoffBox.Size = new System.Drawing.Size(150, 33);
+            this.DropoffBox.TabIndex = 32;
+            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -1252,8 +1274,6 @@
         private TextBox Address1Text;
         private TextBox LastNameText;
         private TextBox FirstNameText;
-        private TextBox CarTypeText;
-        private TextBox VehicleBranchNumberText;
         private TextBox KmsText;
         private TextBox PolicyNumberText;
         private TextBox ColourText;
@@ -1268,7 +1288,6 @@
         private TextBox BranchPostalCodeText;
         private TextBox BranchDescText;
         private TextBox CityText;
-        private TextBox ProvinceText;
         private TextBox BranchAddr2Text;
         private TextBox BranchAddr1Text;
         private Label label34;
@@ -1328,5 +1347,10 @@
         private TextBox PickupTimeMinText;
         private TextBox DropoffTimeHrText;
         private TextBox PickupTimeHrText;
+        private ComboBox CarTypeBox;
+        private ComboBox VehicleBranchBox;
+        private ComboBox ProvinceBox;
+        private ComboBox DropoffBox;
+        private ComboBox PickupBox;
     }
 }

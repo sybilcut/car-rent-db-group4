@@ -1155,6 +1155,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(17, 680);
             this.dataGridView1.MultiSelect = false;
@@ -1265,8 +1266,6 @@
         private Label label27;
         private TextBox YearMaxText;
         private Label label26;
-        private TextBox CarTypeText;
-        private TextBox BranchNumberText;
         private TextBox KmsMaxText;
         private TextBox KmsMinText;
         private TextBox PolicyNumberText;
@@ -1352,12 +1351,14 @@
         private Label label38;
         private TextBox RentalVINText;
         private TextBox CustomerIDText;
-        private TextBox ReturnBranchText;
         private Label label40;
-        private TextBox PickupBranchText;
         private Label label39;
         private Label label41;
         private Label label48;
         private Label label49;
+        private TextBox CarTypeText;
+        private TextBox BranchNumberText;
+        private TextBox ReturnBranchText;
+        private TextBox PickupBranchText;
     }
 }

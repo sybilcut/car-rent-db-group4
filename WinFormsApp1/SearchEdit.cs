@@ -58,25 +58,6 @@ namespace WinFormsApp1
                 l.Show();
             }
         }
-
-        private void button5_Click_1(object sender, EventArgs e)
-        {
-
-            string connectionString = $"Host=35.183.48.135;Port=5432;Database=master;UserID={Program.user};Password={Program.pass};";
-
-            
-            using (NpgsqlConnection connection = new NpgsqlConnection())
-            {
-                    
-                connection.ConnectionString = connectionString;
-                connection.Open();
-
-                if (connection.State == ConnectionState.Open)
-                {
-                    label32.Text = "Connected!";
-                }
-            }
-        }
     
 
         private void button1_Click(object sender, EventArgs e)
@@ -88,20 +69,27 @@ namespace WinFormsApp1
                 query = $@"SELECT * FROM Customers c WHERE
                             LOWER(FirstName) LIKE LOWER('%{FirstNameText.Text}%')
                             AND (LOWER(MiddleName) LIKE LOWER('%{MiddleNameText.Text}%') 
-                                OR MiddleName IS NULL)
+                                OR (MiddleName IS NULL
+                                    AND ({MiddleNameText.Text.Length} = 0)))
                             AND LOWER(LastName) LIKE LOWER('%{LastNameText.Text}%')
                             AND (LOWER(StreetAddress1) LIKE LOWER('%{Address1Text.Text}%') 
-                                OR StreetAddress1 IS NULL)
+                                OR (StreetAddress1 IS NULL 
+                                    AND ({Address1Text.Text.Length} = 0)))
                             AND (LOWER(StreetAddress2) LIKE LOWER('%{Address2Text.Text}%') 
-                                OR StreetAddress2 IS NULL)
+                                OR (StreetAddress2 IS NULL 
+                                    AND ({Address2Text.Text.Length} = 0)))
                             AND (LOWER(PostalCode) LIKE LOWER('%{PostalCodeText.Text}%') 
-                                OR PostalCode IS NULL)
+                                OR (PostalCode IS NULL 
+                                    AND ({PostalCodeText.Text.Length} = 0)))
                             AND (LOWER(PhoneNum) LIKE LOWER('%{PhoneNumberText.Text}%') 
-                                OR PhoneNum IS NULL)
+                                OR (PhoneNum IS NULL 
+                                    AND ({PhoneNumberText.Text.Length} = 0)))
                             AND (LOWER(Insurance) LIKE LOWER('%{InsuranceText.Text}%') 
-                                OR Insurance IS NULL)
+                                OR (Insurance IS NULL
+                                    AND ({InsuranceText.Text.Length} = 0)))
                             AND (LOWER(Driving_license) LIKE LOWER('%{DrivingLicenseText.Text}%') 
-                                OR Driving_license IS NULL);";
+                                OR (Driving_license IS NULL
+                                    AND ({PolicyNumberText.Text.Length} = 0)));";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["VehicleTab"])
@@ -116,10 +104,12 @@ namespace WinFormsApp1
                                                AND '{((SeatsMaxText.Text.Length > 0) ? SeatsMaxText.Text : MAX_VAL)}'::int4)
                             AND LOWER(Colour) LIKE LOWER('%{ColourText.Text}%')
                             AND (InsuranceNo::text LIKE ('%{PolicyNumberText.Text}%') 
-                                OR InsuranceNo IS NULL)
+                                OR (InsuranceNo IS NULL
+                                   AND ({PolicyNumberText.Text.Length} = 0)))
                             AND (odometernumber BETWEEN '{((KmsMinText.Text.Length > 0) ? KmsMinText.Text : 0)}'::int4 
                                                     AND '{((KmsMaxText.Text.Length > 0) ? KmsMaxText.Text : MAX_VAL)}'::int4 
-                                OR odometernumber IS NULL)
+                                OR (odometernumber IS NULL 
+                                   AND ({KmsMinText.Text.Length} = 0)))
                             AND Branch_ID::text LIKE ('%{BranchNumberText.Text}%')
                             AND LOWER(CarType) LIKE LOWER('%{CarTypeText.Text}%');";
             }
@@ -232,7 +222,7 @@ namespace WinFormsApp1
 
         private void SaveButton_LostFocus(object sender, EventArgs e)
         {
-            SaveButton.Text = "Save";
+            SaveButton.Text = "Save Changes";
         }
     }
 }

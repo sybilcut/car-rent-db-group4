@@ -35,6 +35,8 @@ namespace WinFormsApp1
                     label32.Text = "Connection " + connection.State.ToString();
                 }
 
+                Populate_Comboboxes();
+
             } catch (Exception eep)
             {
                 ErrorForm page = new ErrorForm(eep);
@@ -43,6 +45,41 @@ namespace WinFormsApp1
                 Login l = new Login();
                 l.Show();
             }
+        }
+        private void Populate_Comboboxes()
+        {
+            string query;
+
+            query = "SELECT * from Branch";
+            NpgsqlCommand cmd = new NpgsqlCommand(query, connection);
+            NpgsqlDataAdapter dAdapter = new NpgsqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            dAdapter.Fill(ds);
+            VehicleBranchBox.ValueMember = "BID";
+            VehicleBranchBox.DisplayMember = "City";
+            VehicleBranchBox.DataSource = ds.Tables[0];
+
+            PickupBox.ValueMember = "BID";
+            PickupBox.DisplayMember = "City";
+            PickupBox.DataSource = ds.Tables[0];
+
+            DropoffBox.ValueMember = "BID";
+            DropoffBox.DisplayMember = "City";
+            DropoffBox.DataSource = ds.Tables[0];
+
+
+
+            query = "SELECT * FROM CarType";
+            cmd = new NpgsqlCommand(query, connection);
+            dAdapter = new NpgsqlDataAdapter(cmd);
+            DataSet ds2 = new DataSet();
+            dAdapter.Fill(ds2);
+            CarTypeBox.ValueMember = "CartypeID";
+            CarTypeBox.DisplayMember = "CartypeID";
+            CarTypeBox.DataSource = ds2.Tables[0];
+            
+            
+
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -123,8 +160,8 @@ namespace WinFormsApp1
                                 NULLIF('{ColourText.Text}', ''), 
                                 NULLIF('{PolicyNumberText.Text}', ''), 
                                 NULLIF('{KmsText.Text}', '')::int,
-                                NULLIF('{VehicleBranchNumberText.Text}', '')::int,
-                                NULLIF('{CarTypeText.Text}', ''));";
+                                NULLIF('{VehicleBranchBox.Text}', '')::int,
+                                NULLIF('{CarTypeBox.Text}', ''));";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["RentalTab"])
@@ -164,7 +201,7 @@ namespace WinFormsApp1
                                 NULLIF('{BranchAddr1Text.Text}', ''), 
                                 NULLIF('{BranchAddr2Text.Text}', ''), 
                                 NULLIF('{CityText.Text}', ''), 
-                                NULLIF('{ProvinceText.Text}', ''), 
+                                NULLIF('{ProvinceBox.Text}', ''), 
                                 NULLIF('{BranchPostalCodeText.Text}', ''), 
                                 NULLIF('{BranchPhoneNumberText.Text}', ''));";
             }
@@ -220,6 +257,11 @@ namespace WinFormsApp1
                     }
                 }
             }
+        }
+
+        private void tabwindow_Selected(object sender, EventArgs e)
+        {
+            Populate_Comboboxes();
         }
     }
 }
