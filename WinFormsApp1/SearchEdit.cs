@@ -67,26 +67,35 @@ namespace WinFormsApp1
             if (TabWindow.SelectedTab == TabWindow.TabPages["CustomerTab"])
             {
                 query = $@"SELECT * FROM Customers c WHERE
+
                             LOWER(FirstName) LIKE LOWER('%{FirstNameText.Text}%')
+
                             AND (LOWER(MiddleName) LIKE LOWER('%{MiddleNameText.Text}%') 
                                 OR (MiddleName IS NULL
                                     AND ({MiddleNameText.Text.Length} = 0)))
+
                             AND LOWER(LastName) LIKE LOWER('%{LastNameText.Text}%')
+
                             AND (LOWER(StreetAddress1) LIKE LOWER('%{Address1Text.Text}%') 
                                 OR (StreetAddress1 IS NULL 
                                     AND ({Address1Text.Text.Length} = 0)))
+
                             AND (LOWER(StreetAddress2) LIKE LOWER('%{Address2Text.Text}%') 
                                 OR (StreetAddress2 IS NULL 
                                     AND ({Address2Text.Text.Length} = 0)))
+
                             AND (LOWER(PostalCode) LIKE LOWER('%{PostalCodeText.Text}%') 
                                 OR (PostalCode IS NULL 
                                     AND ({PostalCodeText.Text.Length} = 0)))
+
                             AND (LOWER(PhoneNum) LIKE LOWER('%{PhoneNumberText.Text}%') 
                                 OR (PhoneNum IS NULL 
                                     AND ({PhoneNumberText.Text.Length} = 0)))
+
                             AND (LOWER(Insurance) LIKE LOWER('%{InsuranceText.Text}%') 
                                 OR (Insurance IS NULL
                                     AND ({InsuranceText.Text.Length} = 0)))
+
                             AND (LOWER(Driving_license) LIKE LOWER('%{DrivingLicenseText.Text}%') 
                                 OR (Driving_license IS NULL
                                     AND ({PolicyNumberText.Text.Length} = 0)));";
@@ -95,38 +104,57 @@ namespace WinFormsApp1
             if (TabWindow.SelectedTab == TabWindow.TabPages["VehicleTab"])
             {
                 query = $@"SELECT * FROM Car c WHERE
+
                             LOWER(VIN) LIKE LOWER('%{VinText.Text}%')
+
                             AND LOWER(Make) LIKE LOWER('%{MakeText.Text}%')
+
                             AND LOWER(Model) LIKE LOWER('%{ModelText.Text}%')
+
                             AND (Year BETWEEN '{((YearMinText.Text.Length>0) ? YearMinText.Text : 0)}'::int4 
                                           AND '{((YearMaxText.Text.Length>0) ? YearMaxText.Text : MAX_VAL)}'::int4)
+
                             AND (noOfSeats BETWEEN '{((SeatsMinText.Text.Length>0) ? SeatsMinText.Text : 0)}'::int4
                                                AND '{((SeatsMaxText.Text.Length > 0) ? SeatsMaxText.Text : MAX_VAL)}'::int4)
+
                             AND LOWER(Colour) LIKE LOWER('%{ColourText.Text}%')
+
                             AND (InsuranceNo::text LIKE ('%{PolicyNumberText.Text}%') 
                                 OR (InsuranceNo IS NULL
                                    AND ({PolicyNumberText.Text.Length} = 0)))
+
                             AND (odometernumber BETWEEN '{((KmsMinText.Text.Length > 0) ? KmsMinText.Text : 0)}'::int4 
                                                     AND '{((KmsMaxText.Text.Length > 0) ? KmsMaxText.Text : MAX_VAL)}'::int4 
                                 OR (odometernumber IS NULL 
                                    AND ({KmsMinText.Text.Length} = 0)))
+
                             AND Branch_ID::text LIKE ('%{BranchNumberText.Text}%')
+
                             AND LOWER(CarType) LIKE LOWER('%{CarTypeText.Text}%');";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["RentalTab"])
             {
                 query = $@"SELECT * FROM Rental c WHERE
+
                             TID::text LIKE LOWER('%{RentalIDText.Text}%')
+
                             AND (PickupDate BETWEEN '{PickupMinDatePicker.Value.ToShortDateString()}'::date 
                                                 AND '{PickupMaxDatePicker.Value.ToShortDateString()}'::date)
+
                             AND (ReturnDate BETWEEN '{DropoffMinDatePicker.Value.ToShortDateString()}'::date 
                                                 AND '{DropoffMaxDatePicker.Value.ToShortDateString()}'::date)
+
                             AND CustomerID::text LIKE LOWER('{CustomerIDText.Text}%')
+
                             AND LOWER(VIN) LIKE LOWER('{RentalVINText.Text}%')
+
                             AND PickupBID::text LIKE ('{PickupBranchText.Text}%')
+
                             AND (ReturnBID::text LIKE ('{ReturnBranchText.Text}%') 
-                                OR ReturnBID IS NULL)
+                                OR ReturnBID IS NULL 
+                                   AND ({BranchPostalCodeText.Text.Length} = 0))
+
                             AND (Total_rentValue BETWEEN '{((PriceMinText.Text.Length > 0) ? PriceMinText.Text : 0)}'::money 
                                                      AND '{((PriceMaxText.Text.Length > 0) ? PriceMaxText.Text : MAX_VAL)}'::money);";
             }
@@ -134,23 +162,44 @@ namespace WinFormsApp1
             if (TabWindow.SelectedTab == TabWindow.TabPages["BranchTab"])
             {
                 query = $@"SELECT * FROM Branch c WHERE
-                            (LOWER(Street_address1) LIKE LOWER('%{BranchAddr1Text.Text}%') OR Street_address1 IS NULL)
-                            AND (LOWER(Street_Address2) LIKE LOWER('%{BranchAddr2Text.Text}%') OR Street_address2 IS NULL)
+
+                            (LOWER(Street_address1) LIKE LOWER('%{BranchAddr1Text.Text}%') 
+                                OR (Street_address1 IS NULL
+                                    AND ({BranchAddr1Text.Text.Length} = 0)))
+
+                            AND (LOWER(Street_Address2) LIKE LOWER('%{BranchAddr2Text.Text}%') 
+                                OR (Street_address2 IS NULL
+                                    AND ({BranchAddr2Text.Text.Length} = 0)))
+
                             AND LOWER(Province) LIKE LOWER('%{ProvinceText.Text}%')
+
                             AND LOWER(City) LIKE LOWER('%{CityText.Text}%')
-                            AND (LOWER(Description) LIKE LOWER('%{DescriptionText.Text}%') OR description IS NULL)
-                            AND (LOWER(PostalCode) LIKE LOWER('%{BranchPostalCodeText.Text}%') OR PostalCode IS NULL)
-                            AND (LOWER(PhoneNum) LIKE LOWER('%{BranchPhoneNumText.Text}%') OR PhoneNum IS NULL);";
+
+                            AND (LOWER(Description) LIKE LOWER('%{DescriptionText.Text}%') 
+                                OR (description IS NULL
+                                    AND ({DescriptionText.Text.Length} = 0)))
+
+                            AND (LOWER(PostalCode) LIKE LOWER('%{BranchPostalCodeText.Text}%') 
+                                OR (PostalCode IS NULL
+                                    AND ({BranchPostalCodeText.Text.Length} = 0)))
+
+                            AND (LOWER(PhoneNum) LIKE LOWER('%{BranchPhoneNumText.Text}%') 
+                                OR (PhoneNum IS NULL
+                                    AND ({BranchPhoneNumText.Text.Length} = 0)));";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["CarTypeTab"])
             {
                 query = $@"SELECT * FROM CarType c WHERE
+
                             LOWER(CarTypeID) LIKE LOWER('%{CarDescText.Text}%') 
+
                             AND (DailyRate BETWEEN '{((DailyRateMinText.Text.Length > 0) ? DailyRateMinText.Text : 0)}'::money 
                                                AND '{((DailyRateMaxText.Text.Length > 0) ? DailyRateMaxText.Text : MAX_VAL)}'::money) 
+
                             AND (WeeklyRate BETWEEN '{((WeeklyRateMinText.Text.Length > 0) ? WeeklyRateMinText.Text : 0)}'::money 
                                                 AND '{((WeeklyRateMaxText.Text.Length > 0) ? WeeklyRateMaxText.Text : MAX_VAL)}'::money) 
+
                             AND (MonthlyRate BETWEEN '{((MonthlyRateMinText.Text.Length > 0) ? MonthlyRateMinText.Text : 0)}'::money 
                                                  AND '{((MonthlyRateMaxText.Text.Length > 0) ? MonthlyRateMaxText.Text : MAX_VAL)}'::money);";
             }
@@ -223,6 +272,26 @@ namespace WinFormsApp1
         private void SaveButton_LostFocus(object sender, EventArgs e)
         {
             SaveButton.Text = "Save Changes";
+        }
+
+
+        private void Clear_All()
+        {
+            foreach (Control control in TabWindow.Controls)
+            {
+                foreach (Control c in control.Controls)
+                {
+                    if (c is TextBox)
+                    {
+                        c.Text = "";
+                    }
+                }
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Clear_All();
         }
     }
 }

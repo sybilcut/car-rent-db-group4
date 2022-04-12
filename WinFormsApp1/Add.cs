@@ -160,8 +160,8 @@ namespace WinFormsApp1
                                 NULLIF('{ColourText.Text}', ''), 
                                 NULLIF('{PolicyNumberText.Text}', ''), 
                                 NULLIF('{KmsText.Text}', '')::int,
-                                NULLIF('{VehicleBranchBox.Text}', '')::int,
-                                NULLIF('{CarTypeBox.Text}', ''));";
+                                NULLIF('{VehicleBranchBox.SelectedValue}', '')::int,
+                                NULLIF('{CarTypeBox.SelectedValue}', ''));";
             }
 
             if (TabWindow.SelectedTab == TabWindow.TabPages["RentalTab"])
@@ -182,8 +182,8 @@ namespace WinFormsApp1
                                 NULLIF('{DropoffTimeHrText.Text}{DropoffTimeMinText.Text}', '')::time,
                                 NULLIF('{CustIDText.Text}', '')::int, 
                                 NULLIF('{VehicleNumberText.Text}', ''),  
-                                NULLIF('{PickupBranchText.Text}', '')::int,  
-                                NULLIF('{DropoffBranchText.Text}', '')::int,
+                                NULLIF('{PickupBox.SelectedValue}', '')::int,  
+                                NULLIF('{DropoffBox.SelectedValue}', '')::int,
                                 NULLIF('{TotalPriceText.Text}', '')::money);";
             }
 
