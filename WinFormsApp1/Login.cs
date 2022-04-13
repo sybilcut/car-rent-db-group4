@@ -23,11 +23,7 @@ namespace WinFormsApp1
         {
             Program.user = UsernameText.Text;
             Program.pass = PasswordText.Text;
-<<<<<<< HEAD
             Add form = new Add(); //link to pages
-=======
-             NewRental form = new NewRental(); //link to pages NewRental() 
->>>>>>> 8c6f3696b5eb3432fa70d7a6c57698097341c725
             form.Show();
             this.Hide();
         }
